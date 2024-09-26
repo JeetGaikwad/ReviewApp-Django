@@ -1,0 +1,48 @@
+{% extends "reviewapp/base.html" %}
+
+{% block body %}
+<h3 class="m-4">All Reviews</h3>
+<div class="row">
+  <div class="col-12">
+    {% if reviews %}
+    <div class="card bg-light ms-4 me-4 mb-4">
+      <div class="card-header">
+        <i class="fa-solid fa-list fa-lg"></i> Customer Reviews
+      </div>
+      <div class="card-body">
+        <p class="card-text">
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">Name</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Age</th>
+                  <th scope="col">Gender</th>
+                  <th scope="col">Phone Number</th>
+                  <th scope="col">Review</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for res in reviews %}
+                  <tr>
+                    <td>{{ res.name }}</td>
+                    <td>{{ res.email }}</td>
+                    <td>{{ res.age }}</td>
+                    <td>{{ res.gender }}</td>
+                    <td>{{ res.phone_number }}</td>
+                    <td>{{ res.review }}</td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </p>
+      </div>
+    </div>
+    {% else %}
+      <h5 class="alert alert-primary ms-4 me-4">No Student Records</h5>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
